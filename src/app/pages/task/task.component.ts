@@ -24,6 +24,7 @@ taskRecords: any[] = [];
   // status: string[] = [];  // This will hold the available locations
   status: string = '';     // This will hold the selected location
   dayOfRecycling: string = '';
+   i: number = 0;
 
   selectTab(tab: string) {
     this.activeTab = tab;
@@ -81,7 +82,10 @@ taskRecords: any[] = [];
     );
   }
   
-
+  getBadgeColor(index: number): string {
+    const colors = ['badge-yellow', 'badge-gray', 'badge-green', 'badge-blue'];
+    return colors[index % 4]; // Cycles through the colors array
+  }
 
   loadTaskRecords(): void {
     const userId = localStorage.getItem('userId');

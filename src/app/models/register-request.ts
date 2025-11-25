@@ -1,13 +1,11 @@
 export interface RegisterRequest {
-  name?: string;
   surname?: string;
   email?: string;
   gender?: string;
   userRole?: string;
-  password?: string;
-  confirmPassword?: string;
+  passwordHash?: string;
+  passwordHashConfirmPassword?: string;
 }
-
 
 
 export interface UpdatePasswordRequest{

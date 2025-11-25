@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { DashComponentimplements } from './pages/dash/dash.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 
@@ -33,10 +32,10 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: 'dash', component: DashComponentimplements },
+     
       { path: 'profile', component: ProfileComponent },
       {path: 'task', component: TaskComponent},
-      { path: '', redirectTo: 'dash', pathMatch: 'full' } // Redirect root to dash within MainLayout
+      { path: '', redirectTo: 'profile', pathMatch: 'full' } // Redirect root to dash within MainLayout
     ]
   },
   { path: '**', redirectTo: 'login' }

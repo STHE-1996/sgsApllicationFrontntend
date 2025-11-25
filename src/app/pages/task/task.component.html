@@ -74,16 +74,22 @@
           <tbody>
             <tr *ngFor="let record of taskRecords">
               <td>{{ record.taskName }}</td>
-              <td>{{ record.description }}</td>
+              <td *ngIf="taskRecords.length > 0">
+                <span class="badge" [ngClass]="getBadgeColor(i)">
+                  {{ record.description }}
+                </span>
+              </td>
+              
               <td>{{ record.dueDate }}</td>
               <td>
                 <span class="badge" [ngClass]="{
-                    'badge-yellow': record.status === 'false', 
-                    'badge-green': record.status === 'true'
-                  }">
-                  {{ record.status === 'false' ? 'Not picked' : (record.status === 'true' ? 'Picked up' : record.status) }}
+                  'badge-yellow': record.status === 'IN_PROGRESS', 
+                  'badge-gray': record.status === 'PENDING',
+                  'badge-green': record.status === 'COMPLETED'
+                }">
+                  {{ record.status === 'IN_PROGRESS' ? 'IN PROGRESS' : (record.status === 'PENDING' ? 'PENDING' : record.status) }}
                 </span>
-              </td>
+              </td>              
               <td>
                 <span [ngClass]="{'successful': record.userRole === 'Successful', 'pending': record.userRole === 'Pending'}">{{ record.userRole }}</span>
               </td>
